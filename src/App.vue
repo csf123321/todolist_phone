@@ -6,7 +6,7 @@ import {reactive} from "vue";
 
 const remoteURL = "http://8.130.123.211:8000"
 const devURL = "http://127.0.0.1:8000"
-const URL = remoteURL
+const URL = '/'
 
 axios.defaults.withCredentials = true
 

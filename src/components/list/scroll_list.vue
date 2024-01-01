@@ -2,6 +2,7 @@
 import axios from "axios";
 import {ref,reactive} from "vue";
 import Todo_card from "@/components/list/todo_card.vue";
+import formatTime from "@/utils/formatTime.js";
 
 const props = defineProps(['URL'])
 
@@ -33,12 +34,11 @@ onBeforeMount(async ()=>{
     all_list = res.data.data
 
     all_list = all_list.map((item) => {
-      let res = item.deadline.split('T')
-      item.date = res[0].replaceAll('-', '/')
-      item.time = res[1]
+      let temp_date = formatTime(new Date(item.deadline*1000))
+      item.date = temp_date.date
+      item.time = temp_date.time
       return item
     })
-    console.log(all_list)
     if (all_list.length === 0) {
       infoList.if_has = false
     }

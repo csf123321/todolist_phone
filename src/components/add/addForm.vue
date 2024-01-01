@@ -19,7 +19,7 @@ const FormRef = ref(form)
               v-model="form.deadline"
               type="datetime"
               format="YYYY/MM/DD HH:mm:ss"
-              value-format="YYYY-MM-DDThh:mm:ss"
+              value-format="X"
           />
         </el-form-item>
         <el-form-item label="详细描述：" prop="description">
